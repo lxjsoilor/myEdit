@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery.min.js"></script>
+    <script src="./myEdit.js"></script>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="height:100px;"></div>
+    <div>
+        <p class="test">这是一段文本</p>
+    </div>
+    <div style="height:100px;"></div>
+    <div>
+        <p class="test2">这也是一段文本这也是一段文本这也是一段文本这也是一段文本这也是一段文本</p>
+    </div>
+
+    <script>
+        $('.test').myEdit(function(res) {
+            console.log(res);
+        });
+        $('.test2').myEdit(function(res) {
+            console.log(res);
+        })
+    </script>
+</body>
+
+</html>
