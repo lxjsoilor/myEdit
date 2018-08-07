@@ -1,5 +1,4 @@
 (function($) {
-
     $.fn.myEdit = function(callback) {
         var $this = $(this[0]);
         var $parent = $(this[0]).parent();
@@ -262,3 +261,5 @@ var controlHtml = '<div class="edit_control edit_control_right"></div>\
                     <div class="edit_control edit_control_right_bottom"></div>\
                     <div class="edit_control edit_control_bottom"></div>';
 var isInstan = false;
+
+console.log(909009);
