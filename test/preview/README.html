@@ -1,0 +1,1018 @@
+<html>
+  <head>
+	  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>i5ting_ztree_toc:README</title>
+		<link href="toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+		<link href="toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+	  <style>
+		pre {
+		    counter-reset: line-numbering;
+		    border: solid 1px #d9d9d9;
+		    border-radius: 0;
+		    background: #fff;
+		    padding: 0;
+		    line-height: 23px;
+		    margin-bottom: 30px;
+		    white-space: pre;
+		    overflow-x: auto;
+		    word-break: inherit;
+		    word-wrap: inherit;
+		}
+
+		pre a::before {
+		  content: counter(line-numbering);
+		  counter-increment: line-numbering;
+		  padding-right: 1em; /* space after numbers */
+		  width: 25px;
+		  text-align: right;
+		  opacity: 0.7;
+		  display: inline-block;
+		  color: #aaa;
+		  background: #eee;
+		  margin-right: 16px;
+		  padding: 2px 10px;
+		  font-size: 13px;
+		  -webkit-touch-callout: none;
+		  -webkit-user-select: none;
+		  -khtml-user-select: none;
+		  -moz-user-select: none;
+		  -ms-user-select: none;
+		  user-select: none;
+		}
+
+		pre a:first-of-type::before {
+		  padding-top: 10px;
+		}
+
+		pre a:last-of-type::before {
+		  padding-bottom: 10px;
+		}
+
+		pre a:only-of-type::before {
+		  padding: 10px;
+		}
+
+		.highlight { background-color: #ffffcc } /* RIGHT */
+		</style>
+  </head>
+  <body>
+	  <div>
+				<div style='width:25%;'>
+						<ul id="tree" class="ztree" style='width:100%'>
+
+						</ul>
+				</div>
+        <div id='readme' style='width:70%;margin-left:20%;'>
+          	<article class='markdown-body'>
+            	<p>[TOC]</p>
+<h1 id="-">虎彩信息中心创新研发部新人指引-前端部分</h1>
+<h2 id="web-">web前端开发规范</h2>
+<h3 id="css-">CSS书写规范</h3>
+<ul>
+<li>待完善<blockquote>
+<p>待完善</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="javascript-">javaScript书写规范</h3>
+<h4 id="-">命名规范</h4>
+<ul>
+<li>常量名<blockquote>
+<p>全部大写并单词间用下划线分隔<br /> 
+如：CSS_BTN_CLOSE、TXT_LOADING</p>
+</blockquote>
+</li>
+<li>对象属性或者方法名<blockquote>
+<p>小驼峰式<br /> 
+如：init、bindEvent、updatePosition<br />
+示例：<br/></p>
+<pre><code>  Dialog.prototype = {
+      init: function () {},
+      bindEvent: function () {},
+      updatePosition: function () {}
+      …
+  }; 
+</code></pre></blockquote>
+</li>
+<li>类名（构造器）<blockquote>
+<p>小驼峰式但首字母大写 <br/>
+如：Current、DefaultConfig</p>
+</blockquote>
+</li>
+<li>函数名<blockquote>
+<p>小驼峰式 <br/>
+如：current()、defaultConfig()</p>
+</blockquote>
+</li>
+<li>变量名<blockquote>
+<p>小驼峰式 <br/>
+如：current、defaultConfig</p>
+</blockquote>
+</li>
+</ul>
+<h4 id="-">代码格式</h4>
+<ul>
+<li>&quot;()&quot;前后需要跟空格</li>
+<li>&quot;=&quot;前后需要跟空格</li>
+<li>&quot;,&quot;后面需要跟空格</li>
+<li>JSON对象需格式化对象参数</li>
+<li>if、while、for、do语句的执行体用&quot;{}&quot;括起来<blockquote>
+<p>&quot;{}&quot;格式如下。</p>
+<pre><code>if (a==1) {
+  //代码
+};
+</code></pre></blockquote>
+</li>
+<li>避免额外的逗号。<blockquote>
+<p>var arr = [1,2,3,];</p>
+</blockquote>
+</li>
+<li>for-in循环体中必须用hasOwnProperty方法检查成员是否为自身成员，避免来自原型链上的污染。</li>
+<li>使用严格的条件判断符。用===代替==，用!==代替!=，避免掉入==造成的陷阱。<blockquote>
+<p>在条件判断时，这样的一些值表示false。<br/>
+null, undefined与null相等, 字符串&#39;&#39;, 数字0, NaN</p>
+</blockquote>
+</li>
+<li><p>在==时，则会有一些让人难以理解的陷阱。</p>
+<pre><code>  (function () {
+      var undefined;
+      undefined == null; // true
+      1 == true; //true
+      2 == true; // false
+      0 == false; // true
+      0 == &#39;&#39;; // true
+      NaN == NaN;// false
+      [] == false; // true
+      [] == ![]; // true
+  })();
+</code></pre></li>
+<li><p>对于不同类型的 == 判断，有这样一些规则，顺序自上而下：</p>
+<blockquote>
+<p>undefined与null相等<br/>
+一个是number一个是string时，会尝试将string转换为number<br/>
+尝试将boolean转换为number<br/>
+尝试将Object转换成number或string</p>
+</blockquote>
+</li>
+<li>而这些取决于另外一个对比量，即值的类型，所以对于0、空字符串的判断，建议使用===</li>
+<li>以下的类型对象不使用new 构造<pre><code>  new Number
+  new String
+  new Boolean
+  new Object //用{}代替
+  new Array //用[]代替
+</code></pre></li>
+<li>引用对象成员用obj.prop代替obj[&quot;prop&quot;]，除非属性名是变量。</li>
+<li>从number到string的转换。<pre><code>  /** 推荐写法*/
+  var a = 1;
+  typeof(a); //&quot;number&quot;
+  console.log(a); //1
+  var aa=a+&#39;&#39;;
+  typeof(aa); //&quot;string&quot;
+  console.log(aa); //&#39;1&#39;
+  /** 不推荐写法*/
+  new String(a)或a.toString()
+</code></pre></li>
+<li>从string到number的转换，使用parseInt，必须显式指定第二个参数的进制。<pre><code>  /** 推荐写法*/
+  var a = &#39;1&#39;;
+  var aa = parseInt(a,10);
+  typeof(a); //&quot;string&quot;
+  console.log(a); //&#39;1&#39;
+  typeof(aa); //&quot;number&quot;
+  console.log(aa); //1
+</code></pre></li>
+<li>从float到integer的转换。<pre><code>  /** 推荐写法*/
+  Math.floor/Math.round/Math.ceil
+  /** 不推荐写法*/
+  parseInt
+</code></pre></li>
+<li>字符串拼接应使用数组保存字符串片段，使用时调用join方法。避免使用+或+=的方式拼接较长的字符串，每个字符串都会使用一个小的内存片段，过多的内存片段会影响性能。<pre><code>  /**推荐的拼接方式array的push、join*/
+  var str=[],
+      list=[&#39;测试A&#39;,&#39;测试B&#39;];
+  for (var i=0 , len=list.length; i &lt; len; i++) {
+      str.push( &#39;&lt;div&gt;&#39;+ list[i] + &#39;&lt;/div&gt;&#39;);
+  };
+  console.log(str.join(&#39;&#39;)); //&lt;div&gt;测试A&lt;/div&gt;&lt;div&gt;测试B&lt;/div&gt;
+  /** 不推荐的拼接方式+=*/
+  var str = &#39;&#39;,
+      list=[&#39;测试A&#39;,&#39;测试B&#39;];
+  for (var i = 0, len = list.length; i&lt; len; i++) {
+      str+=&#39;&lt;div&gt;&#39; + list[i] + &#39;&lt;/div&gt;&#39;;
+  };
+  console.log(str); //&lt;div&gt;测试A&lt;/div&gt;&lt;div&gt;测试B&lt;/div&gt;
+</code></pre></li>
+<li>尽量避免使用存在兼容性及消耗资源的方法或属性。<blockquote>
+<p>不要使用with，void，evil，eval_r，innerText</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="vuejs-">VueJS前端开发环境</h2>
+<h3 id="node-js-">Node.js安装及环境配置</h3>
+<ul>
+<li>安装环境<blockquote>
+<ul>
+<li>本机系统：Windows 7（64位）<br/></li>
+<li>Node.js：v8.11.3LTS（64位）</li>
+</ul>
+</blockquote>
+</li>
+<li>3.3.2.1.2安装Node.js步骤<blockquote>
+<ul>
+<li>下载对应你系统的Node.js版本:<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a><br/></li>
+<li>选安装目录进行安装<br/></li>
+<li>测试</li>
+</ul>
+</blockquote>
+</li>
+<li>前期准备<blockquote>
+<ul>
+<li>Node.js简介<br/>
+简单的说 Node.js 就是运行在服务端的 JavaScript。Node.js 是一个基于 Chrome V8 引擎的 JavaScript 运行环境。Node.js 使用了一个事件驱动、非阻塞式 I/O 的模型，使其轻量又高效。Node.js 的包管理器 npm，是全球最大的开源库生态系统。</li>
+<li>下载Node.js<br/>
+打开官网下载链接:<a href="https://nodejs.org/en/download/">https://nodejs.org/en/download/</a> 我这里下载的是node-v8.11.3-x64.msi,如下图：
+<img src="./images/nodejs_step01.png" alt="nodejs_step01"></li>
+</ul>
+</blockquote>
+</li>
+<li>开始安装<blockquote>
+<p>下载完成后，双击“node-v8.11.3-x64.msi”，开始安装Node.js点击【Next】按钮。<br/>
+<img src="./images/nodejs_step02.png" alt="nodejs_step02"><br/>
+<img src="./images/nodejs_step03.png" alt="nodejs_step03"><br/>
+勾选复选框，点击【Next】按钮<br/>
+<img src="./images/nodejs_step04.png" alt="nodejs_step04"><br/>
+点击【Next】按钮<br/>
+<img src="./images/nodejs_step05.png" alt="nodejs_step05"><br/>
+安装完后点击【Finish】按钮完成安装<br/>
+<img src="./images/nodejs_step06.png" alt="nodejs_step06"><br/>
+至此Node.js已经安装完成，可以先进行下简单的测试安装是否成功了， 在键盘按下【win+R】键，输入cmd，然后回车，打开cmd窗口。<br/>
+<img src="./images/nodejs_step07.png" alt="nodejs_step07"><br/>
+安装完后的目录如下图所示：<br/>
+<img src="./images/nodejs_step08.png" alt="nodejs_step08"><br/></p>
+</blockquote>
+</li>
+</ul>
+<h3 id="npm-nrm-">npm镜像切换工具nrm使用</h3>
+<blockquote>
+<p>npm全称Node Package Manager，是node.js的模块依赖管理工具。由于npm的源在国外，所以国内用户使用起来各种不方便。在中国访问外国的服务器非常慢~~ npm install xxx //浪费时间等等等~~，可能会成功，可能会失败（失败后再试，总之就是慢）<br/></p>
+<ul>
+<li>此时推荐使用 npm镜像，优先推荐 taobao</li>
+<li>查看当前镜像下载路径：
+命令行输入：npm config get registry <br/>
+显示：<a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a>    此时所有安装工具都是在国外的npm网站下载</li>
+<li>以下提供两种手段：二选一即可 完成下载镜像路径的切换<ul>
+<li>手段A:
+1.临时使用    npm install xxxxxxx --registry <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a><br/>
+2.持久使用    npm config set registry <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a><br/>
+3.检验设置是否成功：npm config get registry    成功显示：<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org/</a><br/></li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<pre><code>- 手段B：
+    &gt; 打开cmd命令行输入 npm install nrm -g    //一分钟时间，安装完成&lt;br/&gt;
+    &gt; 查看有什么镜像可用，cmd命令行输入 nrm ls    结果如下&lt;br/&gt;
+    &gt; - ![nodejs_step08](./images/nrm_01.png)&lt;br/&gt;
+
+    &gt; nrm test    //测试速度 功能鸡肋可以略过&lt;br/&gt;
+    &gt; nrm use taobao    //使用淘宝镜像 回车&lt;br/&gt;
+    &gt; 再次输入 nrm ls    //此时已经显示&lt;br/&gt;
+    &gt; - ![nodejs_step08](./images/nrm_01.png)&lt;br/&gt;
+    &gt; 检验设置是否成功：&lt;br/&gt;
+    &gt; npm config get registry    成功显示：https://registry.npm.taobao.org/&lt;br/&gt;
+</code></pre><ul>
+<li>最终温馨提示<ul>
+<li>切换镜像之前，在国外npm网站下载，命令行输入    ：npm install xxxxxxxxx</li>
+<li>A B手段二选一，设置好后，在国内taobao下载，命令行输入 ：npm install xxxxxxxxx</li>
+</ul>
+</li>
+</ul>
+<h3 id="vue-cli-vue-">vue-cli（vue脚手架）教程</h3>
+<ul>
+<li><p>1,安装vue-cli</p>
+<ul>
+<li><p>使用npm（需要安装node环境）全局安装webpack，打开命令行工具输入：npm install webpack -g或者（npm install -g webpack），安装完成之后输入 webpack -v，如下图，如果出现相应的版本号，则说明安装成功。</p>
+<blockquote>
+<p>注意：webpack 4.X 开始，需要安装 webpack-cli 依赖 ,所以使用这条命令  npm install webpack webpack-cli -g</p>
+</blockquote>
+</li>
+<li><p>全局安装vue-cli，在cmd中输入命令:</p>
+<blockquote>
+<p>npm install --global vue-cli</p>
+</blockquote>
+<p>  <img src="./images/vuecli_01.png" alt="vuecli_step01"><br/></p>
+</li>
+<li><p>安装成功：<br/>
+  <img src="./images/vuecli_02.png" alt="vuecli_step01"><br/></p>
+</li>
+<li><p>安装完成之后输入 vue -V（注意这里是大写的“V”），如下图，如果出现相应的版本号，则说明安装成功。<br/>
+<img src="./images/vuecli_03.png" alt="vuecli_step01"><br/></p>
+</li>
+</ul>
+</li>
+<li><p>2,用vue-cli来构建项目</p>
+<ul>
+<li>我首先在D盘新建一个文件夹（vue_test）作为项目存放地，然后使用命令行cd进入到项目目录输入：<br/>
+<code>vue init webpack vue_test</code></li>
+<li>vue_test是自定义的项目名称，命令执行之后，会在当前目录生成一个以该名称命名的项目文件夹。<br/>
+  <img src="./images/vuecli_04.png" alt="vuecli_step01"><br/><blockquote>
+<p>输入命令后，会跳出几个选项让你回答：</p>
+<ul>
+<li>Project name (baoge)： -----项目名称，直接回车，按照括号中默认名字（注意这里的名字不能有大写字母，如果有会报错Sorry, name can no longer contain capital letters），阮一峰老师博客<a href="http://www.ruanyifeng.com/blog/2017/02/filename-should-be-lowercase.html">为什么文件名要小写</a> ，可以参考一下。</li>
+<li>Project description (A Vue.js project)： ----项目描述，也可直接点击回车，使用默认名字</li>
+<li>Author ()： ----作者，输入你的大名</li>
+<li>Runtime + Compiler: recommended for most users 运行加编译，既然已经说了推荐，就选它了</li>
+<li>Install vue-router? (Y/n) 是否安装vue-router，这是官方的路由，大多数情况下都使用，这里就输入“y”后回车即可。</li>
+<li>Use ESLint to lint your code? (Y/n) 是否使用ESLint管理代码，ESLint是个代码风格管理工具，是用来统一代码风格的，一般项目中都会使用。</li>
+<li>Setup unit tests with Karma + Mocha? (Y/n) 是否安装单元测试，我选择不安装n回车</li>
+<li>Setup e2e tests with Nightwatch(Y/n)? 是否安装e2e测试 ，我选择不安装n回车</li>
+</ul>
+</blockquote>
+</li>
+<li><p>回答完毕后上图就开始构建项目了。</p>
+<ul>
+<li><p>配置完成后，可以看到目录下多出了一个项目文件夹baoge，然后cd进入这个文件夹：</p>
+<blockquote>
+<ul>
+<li>安装依赖： <code>npm install</code><blockquote>
+<p>( 如果安装速度太慢。可以安装淘宝镜像，打开命令行工具，输入：npm install -g cnpm --registry=<a href="https://registry.npm.taobao.org然后使用cnpm来安装">https://registry.npm.taobao.org然后使用cnpm来安装</a> 或者使用nrm工具切换npm镜像)<br/></p>
+</blockquote>
+</li>
+<li>npm install ：安装所有的模块，如果是安装具体的哪个个模块，在install 后面输入模块的名字即可。而只输入install就会按照项目的根目录下的package.json文件中依赖的模块安装（这个文件里面是不允许有任何注释的），每个使用npm管理的项目都有这个文件，是npm操作的入口文件。因为是初始项目，还没有任何模块，所以我用npm install 安装所有的模块。安装完成后，目录中会多出来一个node_modules文件夹，这里放的就是所有依赖的模块。<br/></li>
+</ul>
+</blockquote>
+</li>
+<li><p>然后现在，baoge文件夹里的目录是这样的：<br/>
+<img src="./images/vuecli_05.png" alt="vuecli_step01"><br/></p>
+</li>
+<li>解释下每个文件夹代表的意思(仔细看一下这张图）：<br/>
+<img src="./images/vuecli_06.png" alt="vuecli_step01"><br/></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>3,用vue-cli来构建项目<br/>
+  <code>npm run dev</code><blockquote>
+<p>之后出现 <code>I  Your application is running here: http://localhost:8080</code>
+则表示编译成功<br/>
+浏览器打开<code>http://localhost:8080</code> 即可<br/>
+  <img src="./images/vuecli_07.png" alt="vuecli_step01"><br/></p>
+</blockquote>
+</li>
+<li><p>4,打包上线</p>
+<blockquote>
+<p>注意，自己的项目文件都需要放到 src 文件夹下。在项目开发完成之后，可以输入 npm run build 来进行打包工作。<br/>
+  <code>npm run build</code><br/></p>
+</blockquote>
+<pre><code>      1.npm 开启了npm run dev以后怎么退出或关闭？
+      ctrl+c
+      2.--save-dev
+      自动把模块和版本号添加到模块配置文件package.json中的依赖里devdependencies部分
+      3. --save-dev 与 --save 的区别
+      --save     安装包信息将加入到dependencies（生产阶段的依赖）
+      --save-dev 安装包信息将加入到devDependencies（开发阶段的依赖），所以开发阶段一般使用它
+</code></pre><blockquote>
+<p>打包完成后，会生成 dist 文件夹，如果已经修改了文件路径，可以直接打开本地文件查看。项目上线时，只需要将 dist 文件夹放到服务器就行了。<br/></p>
+</blockquote>
+</li>
+</ul>
+<h2 id="vuejs-">VueJS前端教程</h2>
+<h3 id="vuejs-">vueJS快速入门</h3>
+<blockquote>
+<p>Vue.js是当下很火的一个JavaScript MVVM库，它是以数据驱动和组件化的思想构建的。相比于Angular.js，Vue.js提供了更加简洁、更易于理解的API，使得我们能够快速地上手并使用Vue.js。</p>
+<ul>
+<li>MVVM模式</li>
+</ul>
+</blockquote>
+<pre><code>下图不仅概括了MVVM模式（Model-View-ViewModel），还描述了在Vue.js中ViewModel是如何和View以及Model进行交互的。
+
+![vuecli_step01](./images/vue_01.png)&lt;br/&gt;
+
+ViewModel是Vue.js的核心，它是一个Vue实例。Vue实例是作用于某一个HTML元素上的，这个元素可以是HTML的body元素，也可以是指定了id的某个元素。
+
+当创建了ViewModel后，双向绑定是如何达成的呢？
+
+首先，我们将上图中的DOM Listeners和Data Bindings看作两个工具，它们是实现双向绑定的关键。
+从View侧看，ViewModel中的DOM Listeners工具会帮我们监测页面上DOM元素的变化，如果有变化，则更改Model中的数据；
+从Model侧看，当我们更新Model中的数据时，Data Bindings工具会帮我们更新页面中的DOM元素。
+</code></pre><ul>
+<li><p>Hello World示例</p>
+<p>  了解一门语言，或者学习一门新技术，编写Hello World示例是我们的必经之路。这段代码在画面上输出&quot;Hello World!&quot;。</p>
+<pre><code>      &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+      &lt;head&gt;
+          &lt;meta charset=&quot;UTF-8&quot;&gt;
+          &lt;title&gt;&lt;/title&gt;
+      &lt;/head&gt;
+
+      &lt;body&gt;
+          &lt;!--这是我们的View--&gt;
+          &lt;div id=&quot;app&quot;&gt;
+              {{ message }}
+          &lt;/div&gt;
+      &lt;/body&gt;
+      &lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+      &lt;script&gt;
+          // 这是我们的Model
+          var exampleData = {
+              message: &#39;Hello World!&#39;
+          }
+
+          // 创建一个 Vue 实例或 &quot;ViewModel&quot;
+          // 它连接 View 与 Model
+          new Vue({
+              el: &#39;#app&#39;,
+              data: exampleData
+          })
+      &lt;/script&gt;
+  &lt;/html&gt;
+</code></pre><ul>
+<li><p>使用Vue的过程就是定义MVVM各个组成部分的过程的过程。</p>
+<ul>
+<li>定义View(html代码)</li>
+<li>定义Model(页面数据部分)</li>
+<li>创建一个Vue实例或&quot;ViewModel&quot;,它用于连接View和Model</li>
+</ul>
+</li>
+<li><p>在创建Vue实例时，需要传入一个选项对象，选项对象可以包含数据(data)、挂载元素(el)、方法(methods)、<a href="https://cn.vuejs.org/v2/guide/instance.html#实例生命周期钩子">生命周期钩子</a>等等。</p>
+</li>
+<li><p>在这个示例中，选项对象的el属性指向View，el: &#39;#app&#39;表示该Vue实例将挂载到<code>&lt;div id=&quot;app&quot;&gt;...&lt;/div&gt;</code>这个元素；data属性指向Model，data: exampleData表示我们的Model是exampleData对象。<br/>
+Vue.js有多种数据绑定的语法，最基础的形式是文本插值，使用一对大括号语法，在运行时{{ message }}会被数据对象的message属性替换，所以页面上会输出&quot;Hello World!&quot;。</p>
+</li>
+</ul>
+</li>
+<li><p>双向绑定示例 </p>
+<ul>
+<li>MVVM模式本身是实现了双向绑定的，在Vue.js中可以使用v-model指令在表单元素上创建双向数据绑定。<pre><code>&lt;!--这是我们的View--&gt;
+&lt;div id=&quot;app&quot;&gt;
+  &lt;p&gt;{{ message }}&lt;/p&gt;
+  &lt;input type=&quot;text&quot; v-model=&quot;message&quot;/&gt;
+&lt;/div&gt;
+</code></pre></li>
+<li><p>将message绑定到文本框，当更改文本框的值时，<code>&lt;p&gt;{{ message }}&lt;/p&gt;</code> 中的内容也会被更新。</p>
+<p><img src="./images/vue_02.gif" alt="vuecli_step01"><br/></p>
+</li>
+<li><p>反过来，如果改变message的值，文本框的值也会被更新，我们可以在Chrome控制台进行尝试。</p>
+<p><img src="./images/vue_03.gif" alt="vuecli_step01"><br/></p>
+</li>
+<li><p>Vue实例的data属性指向exampleData，它是一个引用类型，改变了exampleData对象的属性，同时也会影响Vue实例的data属性。</p>
+</li>
+</ul>
+</li>
+<li><p>Vue.js的常用指令</p>
+<blockquote>
+<p>上面用到的v-model是Vue.js常用的一个指令，那么指令是什么呢？</p>
+</blockquote>
+<blockquote>
+<p>Vue.js的指令是以v-开头的，它们作用于HTML元素，指令提供了一些特殊的特性，将指令绑定在元素上时，指令会为绑定的目标元素添加一些特殊的行为，我们可以将指令看作特殊的HTML特性（attribute）。</p>
+</blockquote>
+<blockquote>
+<p>Vue.js提供了一些常用的内置指令，接下来我们将介绍以下几个内置指令：</p>
+<pre><code>      v-if指令
+      v-show指令
+      v-else指令
+      v-for指令
+      v-bind指令
+      v-on指令
+</code></pre><p>Vue.js具有良好的扩展性，我们也可以开发一些自定义的指令，后面的文章会介绍自定义指令。</p>
+</blockquote>
+<ul>
+<li><p>v-if指令</p>
+<p>  v-if是条件渲染指令，它根据表达式的真假来删除和插入元素，它的基本语法如下：
+  v-if=&quot;expression&quot;</p>
+<p>  expression是一个返回bool值的表达式，表达式可以是一个bool属性，也可以是一个返回bool的运算式。例如：</p>
+<pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+      &lt;head&gt;
+          &lt;meta charset=&quot;UTF-8&quot;&gt;
+          &lt;title&gt;&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+          &lt;div id=&quot;app&quot;&gt;
+              &lt;h1&gt;Hello, Vue.js!&lt;/h1&gt;
+              &lt;h1 v-if=&quot;yes&quot;&gt;Yes!&lt;/h1&gt;
+              &lt;h1 v-if=&quot;no&quot;&gt;No!&lt;/h1&gt;
+              &lt;h1 v-if=&quot;age &gt;= 25&quot;&gt;Age: {{ age }}&lt;/h1&gt;
+              &lt;h1 v-if=&quot;name.indexOf(&#39;jack&#39;) &gt;= 0&quot;&gt;Name: {{ name }}&lt;/h1&gt;
+          &lt;/div&gt;
+      &lt;/body&gt;
+      &lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+      &lt;script&gt;
+
+          var vm = new Vue({
+              el: &#39;#app&#39;,
+              data: {
+                  yes: true,
+                  no: false,
+                  age: 28,
+                  name: &#39;keepfool&#39;
+              }
+          })
+      &lt;/script&gt;
+  &lt;/html&gt;
+</code></pre><blockquote>
+<p>注意：yes, no, age, name这4个变量都来源于Vue实例选项对象的data属性。</p>
+</blockquote>
+<p>  <img src="./images/vue_04.png" alt="vuecli_step01"><br/></p>
+<blockquote>
+<p>这段代码使用了4个表达式：</p>
+<ul>
+<li>数据的yes属性为true，所以&quot;Yes!&quot;会被输出；</li>
+<li>数据的no属性为false，所以&quot;No!&quot;不会被输出；</li>
+<li>运算式age &gt;= 25返回true，所以&quot;Age: 28&quot;会被输出；</li>
+<li>运算式name.indexOf(&#39;jack&#39;) &gt;= 0返回false，所以&quot;Name: keepfool&quot;不会被输出。</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>注意：v-if指令是根据条件表达式的值来执行元素的插入或者删除行为。</p>
+<ul>
+<li>这一点可以从渲染的HTML源代码看出来，上面只渲染了3个<code>&lt;h1&gt;</code>元素，v-if值为false的<code>&lt;h1&gt;</code>元素没有渲染到HTML。</li>
+</ul>
+</blockquote>
+<p>  <img src="./images/vue_05.png" alt="vuecli_step01"><br/></p>
+<blockquote>
+<p>为了再次验证这一点，可以在Chrome控制台更改age属性，使得表达式age &gt;= 25的值为false，可以看到<code>&lt;h1&gt;Age: 28&lt;/h1&gt;</code>元素被删除了</p>
+</blockquote>
+<p>  <img src="./images/vue_06.gif" alt="vuecli_step01"><br/></p>
+<blockquote>
+<p>age是定义在选项对象的data属性中的，为什么Vue实例可以直接访问它呢？这是因为每个Vue实例都会代理其选项对象里的data属性。</p>
+</blockquote>
+</li>
+<li><p>v-show指令</p>
+<ul>
+<li><p>v-show也是条件渲染指令，和v-if指令不同的是，使用v-show指令的元素始终会被渲染到HTML，它只是简单地为元素设置CSS的style属性。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;title&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;div id=&quot;app&quot;&gt;
+          &lt;h1&gt;Hello, Vue.js!&lt;/h1&gt;
+          &lt;h1 v-show=&quot;yes&quot;&gt;Yes!&lt;/h1&gt;
+          &lt;h1 v-show=&quot;no&quot;&gt;No!&lt;/h1&gt;
+          &lt;h1 v-show=&quot;age &gt;= 25&quot;&gt;Age: {{ age }}&lt;/h1&gt;
+          &lt;h1 v-show=&quot;name.indexOf(&#39;jack&#39;) &gt;= 0&quot;&gt;Name: {{ name }}&lt;/h1&gt;
+      &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+
+      var vm = new Vue({
+          el: &#39;#app&#39;,
+          data: {
+              yes: true,
+              no: false,
+              age: 28,
+              name: &#39;keepfool&#39;
+          }
+      })
+  &lt;/script&gt;
+&lt;/html&gt;
+</code></pre><p><img src="./images/vue_07.png" alt="vuecli_step01"><br/></p>
+</li>
+<li><p>在Chrome控制台更改age属性，使得表达式age &gt;= 25的值为false，可以看到<code>&lt;h1&gt;Age: 24&lt;/h1&gt;</code>元素被设置了style=&quot;display:none&quot;样式。</p>
+<p><img src="./images/vue_08.gif" alt="vuecli_step01"><br/></p>
+</li>
+</ul>
+</li>
+<li><p>v-else指令</p>
+<ul>
+<li><p>可以用v-else指令为v-if或v-show添加一个“else块”。v-else元素必须立即跟在v-if或v-show元素的后面——否则它不能被识别。</p>
+<pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+
+      &lt;head&gt;
+          &lt;meta charset=&quot;UTF-8&quot;&gt;
+          &lt;title&gt;&lt;/title&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+          &lt;div id=&quot;app&quot;&gt;
+              &lt;h1 v-if=&quot;age &gt;= 25&quot;&gt;Age: {{ age }}&lt;/h1&gt;
+              &lt;h1 v-else&gt;Name: {{ name }}&lt;/h1&gt;
+              &lt;h1&gt;---------------------分割线---------------------&lt;/h1&gt;
+              &lt;h1 v-show=&quot;name.indexOf(&#39;keep&#39;) &gt;= 0&quot;&gt;Name: {{ name }}&lt;/h1&gt;
+              &lt;h1 v-else&gt;Sex: {{ sex }}&lt;/h1&gt;
+          &lt;/div&gt;
+      &lt;/body&gt;
+      &lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+      &lt;script&gt;
+          var vm = new Vue({
+              el: &#39;#app&#39;,
+              data: {
+                  age: 28,
+                  name: &#39;keepfool&#39;,
+                  sex: &#39;Male&#39;
+              }
+          })
+      &lt;/script&gt;
+  &lt;/html&gt;
+</code></pre></li>
+<li><p>v-else元素是否渲染在HTML中，取决于前面使用的是v-if还是v-show指令。<br/>
+  这段代码中v-if为true，后面的v-else不会渲染到HTML；v-show为tue，但是后面的v-else仍然渲染到HTML了。</p>
+<p><img src="./images/vue_09.png" alt="vuecli_step01"><br/></p>
+</li>
+</ul>
+</li>
+<li><p>v-for指令</p>
+<ul>
+<li><p>v-for指令基于一个数组渲染一个列表，它和JavaScript的遍历语法相似：<code>v-for=&quot;item in items&quot;</code></p>
+<blockquote>
+<p>items是一个数组，item是当前被遍历的数组元素。
+<code>`</code>
+&lt;!DOCTYPE html&gt;</p>
+</blockquote>
+<html>
+
+  <head>
+      <meta charset="UTF-8">
+      <title></title>
+      <link rel="stylesheet" href="styles/demo.css" />
+  </head>
+
+<p>  <body></p>
+<pre><code>  &lt;div id=&quot;app&quot;&gt;
+      &lt;table&gt;
+          &lt;thead&gt;
+              &lt;tr&gt;
+                  &lt;th&gt;Name&lt;/th&gt;
+                  &lt;th&gt;Age&lt;/th&gt;
+                  &lt;th&gt;Sex&lt;/th&gt;
+              &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+              &lt;tr v-for=&quot;person in people&quot;&gt;
+                  &lt;td&gt;{{ person.name  }}&lt;/td&gt;
+                  &lt;td&gt;{{ person.age  }}&lt;/td&gt;
+                  &lt;td&gt;{{ person.sex  }}&lt;/td&gt;
+              &lt;/tr&gt;
+          &lt;/tbody&gt;
+      &lt;/table&gt;
+  &lt;/div&gt;
+</code></pre><p>  </body>
+  <script src="js/vue.js"></script>
+  <script></p>
+<pre><code>  var vm = new Vue({
+      el: &#39;#app&#39;,
+      data: {
+          people: [{
+              name: &#39;Jack&#39;,
+              age: 30,
+              sex: &#39;Male&#39;
+          }, {
+              name: &#39;Bill&#39;,
+              age: 26,
+              sex: &#39;Male&#39;
+          }, {
+              name: &#39;Tracy&#39;,
+              age: 22,
+              sex: &#39;Female&#39;
+          }, {
+              name: &#39;Chris&#39;,
+              age: 36,
+              sex: &#39;Male&#39;
+          }]
+      }
+  })
+</code></pre><p>  </script>
+</html>
+<code>`</code></p>
+</li>
+<li><p>我们在选项对象的data属性中定义了一个people数组，然后在#app元素内使用v-for遍历people数组，输出每个person对象的姓名、年龄和性别。</p>
+<p><img src="./images/vue_10.png" alt="vuecli_step01"><br/></p>
+</li>
+</ul>
+</li>
+<li><p>v-bind指令</p>
+<ul>
+<li><p>v-bind指令可以在其名称后面带一个参数，中间放一个冒号隔开，这个参数通常是HTML元素的特性（attribute），例如：<code>v-bind:argument=&quot;expression&quot;</code></p>
+<blockquote>
+<p>下面这段代码构建了一个简单的分页条，v-bind指令作用于元素的class特性上。这个指令包含一个表达式，表达式的含义是：高亮当前页。</p>
+<pre><code>  &lt;!DOCTYPE html&gt;
+  &lt;html&gt;
+      &lt;head&gt;
+          &lt;meta charset=&quot;UTF-8&quot;&gt;
+          &lt;title&gt;&lt;/title&gt;
+          &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/demo.css&quot; /&gt;
+      &lt;/head&gt;
+      &lt;body&gt;
+          &lt;div id=&quot;app&quot;&gt;
+              &lt;ul class=&quot;pagination&quot;&gt;
+                  &lt;li v-for=&quot;n in pageCount&quot;&gt;
+                      &lt;a href=&quot;javascripit:void(0)&quot; v-bind:class=&quot;activeNumber === n + 1 ? &#39;active&#39; : &#39;&#39;&quot;&gt;{{ n + 1 }}&lt;/a&gt;
+                  &lt;/li&gt;
+              &lt;/ul&gt;
+          &lt;/div&gt;
+      &lt;/body&gt;
+      &lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+      &lt;script&gt;
+          var vm = new Vue({
+              el: &#39;#app&#39;,
+              data: {
+                  activeNumber: 1,
+                  pageCount: 10
+              }
+          })
+      &lt;/script&gt;
+  &lt;/html&gt;
+</code></pre><p>注意v-for=&quot;n in pageCount&quot;这行代码，pageCount是一个整数，遍历时n从0开始，然后遍历到pageCount –1结束。</p>
+</blockquote>
+<p>  <img src="./images/vue_11.png" alt="vuecli_step01"><br/></p>
+</li>
+</ul>
+</li>
+<li><p>v-on指令</p>
+<ul>
+<li>v-on指令用于给监听DOM事件，它的用语法和v-bind是类似的，例如监听<code>&lt;a&gt;</code>元素的点击事件：<code>&lt;a v-on:click=&quot;doSomething&quot;&gt;</code></li>
+<li><p>有两种形式调用方法：绑定一个方法（让事件指向方法的引用），或者使用内联语句。Greet按钮将它的单击事件直接绑定到greet()方法，而Hi按钮则是调用say()方法。</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;title&gt;&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+      &lt;div id=&quot;app&quot;&gt;
+          &lt;p&gt;&lt;input type=&quot;text&quot; v-model=&quot;message&quot;&gt;&lt;/p&gt;
+          &lt;p&gt;
+              &lt;!--click事件直接绑定一个方法--&gt;
+              &lt;button v-on:click=&quot;greet&quot;&gt;Greet&lt;/button&gt;
+          &lt;/p&gt;
+          &lt;p&gt;
+              &lt;!--click事件使用内联语句--&gt;
+              &lt;button v-on:click=&quot;say(&#39;Hi&#39;)&quot;&gt;Hi&lt;/button&gt;
+          &lt;/p&gt;
+      &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+      var vm = new Vue({
+          el: &#39;#app&#39;,
+          data: {
+              message: &#39;Hello, Vue.js!&#39;
+          },
+          // 在 `methods` 对象中定义方法
+          methods: {
+              greet: function() {
+                  // // 方法内 `this` 指向 vm
+                  alert(this.message)
+              },
+              say: function(msg) {
+                  alert(msg)
+              }
+          }
+      })
+  &lt;/script&gt;
+&lt;/html&gt;
+</code></pre><p><img src="./images/vue_12.gif" alt="vuecli_step01"><br/></p>
+</li>
+</ul>
+</li>
+<li><p>v-bind和v-on的缩写</p>
+<blockquote>
+<p>Vue.js为最常用的两个指令v-bind和v-on提供了缩写方式。v-bind指令可以缩写为一个冒号，v-on指令可以缩写为@符号。
+  <code>`</code></p>
+  <!--完整语法-->
+<p>  <a href="javascripit:void(0)" v-bind:class="activeNumber === n + 1 ? 'active' : ''">{{ n + 1 }}</a></p>
+  <!--缩写语法-->
+<p>  <a href="javascripit:void(0)" :class="activeNumber=== n + 1 ? 'active' : ''">{{ n + 1 }}</a></p>
+</blockquote>
+  <!--完整语法-->
+<p>  <button v-on:click="greet">Greet</button></p>
+  <!--缩写语法-->
+<p>  <button @click="greet">Greet</button>
+  <code>`</code></p>
+</li>
+<li><p>综合示例</p>
+<blockquote>
+<p>现在我们已经介绍了一些Vue.js的基础知识了，结合以上知识我们可以来做个小Demo。
+  <code>`</code>
+  &lt;!DOCTYPE html&gt;</p>
+  <html>
+</blockquote>
+<pre><code>  &lt;head&gt;
+      &lt;meta charset=&quot;UTF-8&quot;&gt;
+      &lt;title&gt;&lt;/title&gt;
+      &lt;link rel=&quot;stylesheet&quot; href=&quot;styles/demo.css&quot; /&gt;
+  &lt;/head&gt;
+
+  &lt;body&gt;
+      &lt;div id=&quot;app&quot;&gt;
+
+          &lt;fieldset&gt;
+              &lt;legend&gt;
+                  Create New Person
+              &lt;/legend&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                  &lt;label&gt;Name:&lt;/label&gt;
+                  &lt;input type=&quot;text&quot; v-model=&quot;newPerson.name&quot;/&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                  &lt;label&gt;Age:&lt;/label&gt;
+                  &lt;input type=&quot;text&quot; v-model=&quot;newPerson.age&quot;/&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                  &lt;label&gt;Sex:&lt;/label&gt;
+                  &lt;select v-model=&quot;newPerson.sex&quot;&gt;
+                  &lt;option value=&quot;Male&quot;&gt;Male&lt;/option&gt;
+                  &lt;option value=&quot;Female&quot;&gt;Female&lt;/option&gt;
+              &lt;/select&gt;
+              &lt;/div&gt;
+              &lt;div class=&quot;form-group&quot;&gt;
+                  &lt;label&gt;&lt;/label&gt;
+                  &lt;button @click=&quot;createPerson&quot;&gt;Create&lt;/button&gt;
+              &lt;/div&gt;
+      &lt;/fieldset&gt;
+      &lt;table&gt;
+          &lt;thead&gt;
+              &lt;tr&gt;
+                  &lt;th&gt;Name&lt;/th&gt;
+                  &lt;th&gt;Age&lt;/th&gt;
+                  &lt;th&gt;Sex&lt;/th&gt;
+                  &lt;th&gt;Delete&lt;/th&gt;
+              &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+              &lt;tr v-for=&quot;person in people&quot;&gt;
+                  &lt;td&gt;{{ person.name }}&lt;/td&gt;
+                  &lt;td&gt;{{ person.age }}&lt;/td&gt;
+                  &lt;td&gt;{{ person.sex }}&lt;/td&gt;
+                  &lt;td :class=&quot;&#39;text-center&#39;&quot;&gt;&lt;button @click=&quot;deletePerson($index)&quot;&gt;Delete&lt;/button&gt;&lt;/td&gt;
+              &lt;/tr&gt;
+          &lt;/tbody&gt;
+      &lt;/table&gt;
+      &lt;/div&gt;
+  &lt;/body&gt;
+  &lt;script src=&quot;js/vue.js&quot;&gt;&lt;/script&gt;
+  &lt;script&gt;
+      var vm = new Vue({
+          el: &#39;#app&#39;,
+          data: {
+              newPerson: {
+                  name: &#39;&#39;,
+                  age: 0,
+                  sex: &#39;Male&#39;
+              },
+              people: [{
+                  name: &#39;Jack&#39;,
+                  age: 30,
+                  sex: &#39;Male&#39;
+              }, {
+                  name: &#39;Bill&#39;,
+                  age: 26,
+                  sex: &#39;Male&#39;
+              }, {
+                  name: &#39;Tracy&#39;,
+                  age: 22,
+                  sex: &#39;Female&#39;
+              }, {
+                  name: &#39;Chris&#39;,
+                  age: 36,
+                  sex: &#39;Male&#39;
+              }]
+          },
+          methods:{
+              createPerson: function(){
+                  this.people.push(this.newPerson);
+                  // 添加完newPerson对象后，重置newPerson对象
+                  this.newPerson = {name: &#39;&#39;, age: 0, sex: &#39;Male&#39;}
+              },
+              deletePerson: function(index){
+                  // 删一个数组元素
+                  this.people.splice(index,1);
+              }
+          }
+      })
+  &lt;/script&gt;
+</code></pre><p>  </html>
+  <code>`</code></p>
+<p>  <img src="./images/vue_13.gif" alt="vuecli_step01"><br/></p>
+<p>  <a href="https://keepfool.github.io/vue-tutorials/01.GettingStarted/simple-demo.html">例子演示</a></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="vue-">Vue组件通信</h3>
+<blockquote>
+<p>组件 (Component) 是 Vue.js 最强大的功能之一。我的理解组件就是封装起来可以重复使用的html代码，传动的多页面应用页面之间的数据传递主要是依赖URL传递，或者cookie、localStorage等方式，vue单页面应用是组件化开发，没有页面之间的数据传递，但是存在各个组件之间的数据传递。</p>
+<ul>
+<li>组件通讯包括：父子组件之间的通信和兄弟组件之间的通信。<ul>
+<li>父组件 --&gt; 子组件</li>
+</ul>
+</li>
+<li>属性传递<br/>
+发送：父组件通过对子组件绑定一个属性，这个属性的值将会传递给子组件。<br/>
+  <img src="./images/component_01.png" alt="vuecli_step01"><br/>
+接收：子转件通过vue实例化属性props接收父组件传递过来的数据，有两种接收的方式：<br/>
+  <img src="./images/component_02.png" alt="vuecli_step01"><br/></li>
+<li>组件直接调用父组件，有两种调用，一是调用父组件$parent 二是调用根组件$root:<br/>
+父组件信息：<br/>
+  <img src="./images/component_03.png" alt="vuecli_step01"><br/>
+在main.js里面定义的根组件：<br/>
+  <img src="./images/component_04.png" alt="vuecli_step01"><br/>
+子组件获取信息：<br/>
+  <img src="./images/component_05.png" alt="vuecli_step01"><br/><ul>
+<li>子组件 --&gt; 父组件    </li>
+</ul>
+</li>
+<li>通过发送事件和监听事件实现
+发送事件（触发事件）：this.$emit(事件名，参数)；<br/>
+  <img src="./images/component_06.png" alt="vuecli_step01"><br/>
+监听事件（事件响应）：<br/>
+  <img src="./images/component_07.png" alt="vuecli_step01"><br/></li>
+<li>父组件直接获取子组件属性和方法<br/>
+我们可以给子组件起个名字。将名字设置为子组件ref属性的值；<br/>
+  <img src="./images/component_08.png" alt="vuecli_step01"><br/></li>
+</ul>
+</blockquote>
+<pre><code>&gt; 以上都是直接父子组件的传递数据的方法；
+</code></pre><ul>
+<li>全局事件总线，用来处理兄弟，祖父祖孙组件之间的通信。<blockquote>
+<p>方法就是使用一个空的vue实例（Bus）作为全局事件总线；
+  <img src="./images/component_09.png" alt="vuecli_step01"><br/>
+各组件可自己定义好组件内接收外部组件的消息事件即可，不用理会是哪个组件发过来；而对于发送事件的组件，亦不用理会这个事件到底怎么发送给我需要发送的组件。</p>
+<ul>
+<li>定义一个空的vue实例；<br/>
+<img src="./images/component_10.png" alt="vuecli_step01"><br/></li>
+<li>在需要用到的地方引入Bus.js；<br/>
+监听自定义事件<br/>
+<img src="./images/component_11.png" alt="vuecli_step01"><br/></li>
+<li>触发自定义事件<br/>
+<img src="./images/component_12.png" alt="vuecli_step01"><br/></li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h3 id="vuex-">Vuex的使用</h3>
+<blockquote>
+<p>假设已经用vue脚手架工具构建好了项目；那么可以开始使用去引入vuex并使用它；</p>
+<ul>
+<li>利用包管理器npm安装vuex <br/>
+  <img src="./images/vuex_01.png" alt="vuecli_step01"><br/></li>
+<li>新建一个store.js，这个文件里面将用来存储各个组件传递的数据还有操作数据的方法；<br/>
+  <img src="./images/vuex_02.png" alt="vuecli_step01"><br/></li>
+<li>在store.js中输出vuex.Store对象的实例化；<br/>
+  <img src="./images/vuex_03.png" alt="vuecli_step01"><br/></li>
+<li>之后我们在main.js中引入并且配置好我们要使用的vuex；<br/>
+  <img src="./images/vuex_04.png" alt="vuecli_step01"><br/></li>
+<li>接下来就可以开始使用vuex了，vuex有5个核心概念分别是State，Getter，Mutation，Action，Module；</li>
+<li>A.State：<br/>
+Vuex这个属性将会存储着各个组件可能都会用到的数据；就好像localStorage，存储的是各个页面的共享数据；<br/>
+  <img src="./images/vuex_05.png" alt="vuecli_step01"><br/>
+在组件中我们可以通过this.$store.state.[数据名称]来显示这里面的数据，也可以写到computed计算属性里面：<br/>
+   <img src="./images/vuex_06.png" alt="vuecli_step01"><br/><pre><code>  还可以通过mapState的使用更加简单来取到state里面的数据：&lt;br/&gt;
+</code></pre>   <img src="./images/vuex_07.png" alt="vuecli_step01"><br/><pre><code>  然后只需要在计算属性里面加入：&lt;br/&gt;
+</code></pre>   <img src="./images/vuex_08.png" alt="vuecli_step01"><br/></li>
+<li>Mutations：<br/>
+Mutations意思是改变的意思，我们在操作state里面的数据的时候可以简单的使用$store.state =另外的数据；这种方法也可以达到更新页面的效果，但是vuex为我们提供更规范的写法来操作state
+   <img src="./images/vuex_09.png" alt="vuecli_step01"><br/>
+之后我们是在组件上通过this.$store.commit(‘mutations里面的方法名称’)来触发相应的函数来达到更新state的目的；<br/>
+因为每次写this.$store.commit很浪费时间，所以vuex也提供对应的方法：mapMutations;<br/></li>
+</ul>
+</blockquote>
+<pre><code> ![vuecli_step01](./images/vuex_10.png)&lt;br/&gt;
+&gt; - Getters:&lt;br/&gt;
+    &gt; Getters意思是获取的意思，在vuex中的作用是在获取数据之前对数据进行加工处理后输出。&lt;br/&gt;
+    &gt; 基本用法：&lt;br/&gt;
+ ![vuecli_step01](./images/vuex_11.png)&lt;br/&gt;
+ ![vuecli_step01](./images/vuex_12.png)&lt;br/&gt;
+    &gt; 之后可以在页面上通过this.$store.getters.方法名；如果需要传参就需要this.$store.getters.方法名(参数)；&lt;br/&gt;
+    &gt; Getters也是有对应的mapGetters方法来简化代码：&lt;br/&gt;
+ ![vuecli_step01](./images/vuex_13.png)&lt;br/&gt;
+&gt; - Actions:&lt;br/&gt;
+    &gt; Actions和Mutations功能基本是一样的，但是actions是异步的改变state状态，而mutations是同步的改变状态。就是说当mutations里面的方法很复杂，执行时间久的话是会阻塞程序的运行，而actions是异步的所以就不会；&lt;br/&gt;
+    &gt; Actions操作的是mutation，而出发action则通过this.$store.dispatch(‘方法名’)来调用；&lt;br/&gt;
+ ![vuecli_step01](./images/vuex_14.png)&lt;br/&gt;
+    &gt; 通过mapActions来简化代码：&lt;br/&gt;
+ ![vuecli_step01](./images/vuex_15.png)&lt;br/&gt;
+&gt; - Module:&lt;br/&gt;
+    &gt; Module是模块的意思，当我们的项目很大很复杂的时候，state中存储的状态也会变得非常多；&lt;br/&gt;
+    &gt; 使用方法：
+ ![vuecli_step01](./images/vuex_16.png)&lt;br/&gt;
+    &gt; 配置完后，其他所说的操作数据的方法都要加上模块名称：
+ ![vuecli_step01](./images/vuex_17.png)&lt;br/&gt;
+</code></pre><blockquote>
+<p>以上就是vuex的内容！！</p>
+</blockquote>
+
+          	</article>
+        </div>
+		</div>
+  </body>
+</html>
+<script type="text/javascript" src="toc/js/jquery-1.4.4.min.js"></script>
+<script type="text/javascript" src="toc/js/jquery.ztree.all-3.5.min.js"></script>
+<script type="text/javascript" src="toc/js/ztree_toc.js"></script>
+<script type="text/javascript" src="toc_conf.js"></script>
+
+<SCRIPT type="text/javascript" >
+<!--
+$(document).ready(function(){
+    var css_conf = eval(markdown_panel_style);
+    $('#readme').css(css_conf)
+    
+    var conf = eval(jquery_ztree_toc_opts);
+		$('#tree').ztree_toc(conf);
+});
+//-->
+</SCRIPT>
