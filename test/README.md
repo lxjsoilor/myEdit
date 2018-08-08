@@ -171,21 +171,19 @@ if (a==1) {
     > 显示：https://registry.npmjs.org/	此时所有安装工具都是在国外的npm网站下载
 * 以下提供两种手段：二选一即可 完成下载镜像路径的切换
     - 手段A:
-        > 1.临时使用	npm install xxxxxxx --registry https://registry.npm.taobao.org<br/>
-        > 2.持久使用	npm config set registry https://registry.npm.taobao.org<br/>
-        > 3.检验设置是否成功：npm config get registry	成功显示：https://registry.npm.taobao.org/<br/>
-
+        >> 1.临时使用	npm install xxxxxxx --registry https://registry.npm.taobao.org<br/>
+        >> 2.持久使用	npm config set registry https://registry.npm.taobao.org<br/>
+        >> 3.检验设置是否成功：npm config get registry	成功显示：https://registry.npm.taobao.org/<br/>
     - 手段B：
-        > 打开cmd命令行输入 npm install nrm -g	//一分钟时间，安装完成<br/>
-        > 查看有什么镜像可用，cmd命令行输入 nrm ls	结果如下<br/>
-        > - ![nodejs_step08](./images/nrm_01.png)<br/>
-    
-        > nrm test	//测试速度 功能鸡肋可以略过<br/>
-        > nrm use taobao	//使用淘宝镜像 回车<br/>
-        > 再次输入 nrm ls	//此时已经显示<br/>
-        > - ![nodejs_step08](./images/nrm_01.png)<br/>
-        > 检验设置是否成功：<br/>
-        > npm config get registry	成功显示：https://registry.npm.taobao.org/<br/>
+        >> 打开cmd命令行输入 npm install nrm -g	//一分钟时间，安装完成<br/>
+        >> 查看有什么镜像可用，cmd命令行输入 nrm ls	结果如下<br/>
+        >![nodejs_step08](./images/nrm_01.png)<br/>
+        >> nrm test	//测试速度 功能鸡肋可以略过<br/>
+        >> nrm use taobao	//使用淘宝镜像 回车<br/>
+        >> 再次输入 nrm ls	//此时已经显示<br/>
+        ![nodejs_step08](./images/nrm_01.png)<br/>
+        >> 检验设置是否成功：<br/>
+        >> npm config get registry	成功显示：https://registry.npm.taobao.org/<br/>
 * 最终温馨提示
     - 切换镜像之前，在国外npm网站下载，命令行输入	：npm install xxxxxxxxx
     - A B手段二选一，设置好后，在国内taobao下载，命令行输入 ：npm install xxxxxxxxx
@@ -258,9 +256,7 @@ if (a==1) {
 * MVVM模式
 
     下图不仅概括了MVVM模式（Model-View-ViewModel），还描述了在Vue.js中ViewModel是如何和View以及Model进行交互的。
-
-    ![vuecli_step01](./images/vue_01.png)<br/>
-
+![vuecli_step01](./images/vue_01.png)<br/>
     ViewModel是Vue.js的核心，它是一个Vue实例。Vue实例是作用于某一个HTML元素上的，这个元素可以是HTML的body元素，也可以是指定了id的某个元素。
 
     当创建了ViewModel后，双向绑定是如何达成的呢？
@@ -805,41 +801,40 @@ if (a==1) {
 * 之后我们在main.js中引入并且配置好我们要使用的vuex；<br/>
     ![vuecli_step01](./images/vuex_04.png)<br/>
 * 接下来就可以开始使用vuex了，vuex有5个核心概念分别是State，Getter，Mutation，Action，Module；
-    > - A.State：<br/>
+    - A.State：<br/>
         > Vuex这个属性将会存储着各个组件可能都会用到的数据；就好像localStorage，存储的是各个页面的共享数据；<br/>
-    ![vuecli_step01](./images/vuex_05.png)<br/>
+        - ![vuecli_step01](./images/vuex_05.png)<br/>
         > 在组件中我们可以通过this.$store.state.[数据名称]来显示这里面的数据，也可以写到computed计算属性里面：<br/>
-     ![vuecli_step01](./images/vuex_06.png)<br/>
+        - ![vuecli_step01](./images/vuex_06.png)<br/>
         还可以通过mapState的使用更加简单来取到state里面的数据：<br/>
-     ![vuecli_step01](./images/vuex_07.png)<br/>
+        - ![vuecli_step01](./images/vuex_07.png)<br/>
         然后只需要在计算属性里面加入：<br/>
-     ![vuecli_step01](./images/vuex_08.png)<br/>
-    > - Mutations：<br/>
+        - ![vuecli_step01](./images/vuex_08.png)<br/>
+    - Mutations：<br/>
         > Mutations意思是改变的意思，我们在操作state里面的数据的时候可以简单的使用$store.state =另外的数据；这种方法也可以达到更新页面的效果，但是vuex为我们提供更规范的写法来操作state
-     ![vuecli_step01](./images/vuex_09.png)<br/>
+        - ![vuecli_step01](./images/vuex_09.png)<br/>
         > 之后我们是在组件上通过this.$store.commit(‘mutations里面的方法名称’)来触发相应的函数来达到更新state的目的；<br/>
         > 因为每次写this.$store.commit很浪费时间，所以vuex也提供对应的方法：mapMutations;<br/>
-
-     ![vuecli_step01](./images/vuex_10.png)<br/>
-    > - Getters:<br/>
+        - ![vuecli_step01](./images/vuex_10.png)<br/>
+    - Getters:<br/>
         > Getters意思是获取的意思，在vuex中的作用是在获取数据之前对数据进行加工处理后输出。<br/>
         > 基本用法：<br/>
-     ![vuecli_step01](./images/vuex_11.png)<br/>
-     ![vuecli_step01](./images/vuex_12.png)<br/>
+        - ![vuecli_step01](./images/vuex_11.png)<br/>
+        - ![vuecli_step01](./images/vuex_12.png)<br/>
         > 之后可以在页面上通过this.$store.getters.方法名；如果需要传参就需要this.$store.getters.方法名(参数)；<br/>
         > Getters也是有对应的mapGetters方法来简化代码：<br/>
-     ![vuecli_step01](./images/vuex_13.png)<br/>
-    > - Actions:<br/>
+        - ![vuecli_step01](./images/vuex_13.png)<br/>
+    - Actions:<br/>
         > Actions和Mutations功能基本是一样的，但是actions是异步的改变state状态，而mutations是同步的改变状态。就是说当mutations里面的方法很复杂，执行时间久的话是会阻塞程序的运行，而actions是异步的所以就不会；<br/>
         > Actions操作的是mutation，而出发action则通过this.$store.dispatch(‘方法名’)来调用；<br/>
-     ![vuecli_step01](./images/vuex_14.png)<br/>
+        - ![vuecli_step01](./images/vuex_14.png)<br/>
         > 通过mapActions来简化代码：<br/>
-     ![vuecli_step01](./images/vuex_15.png)<br/>
-    > - Module:<br/>
+        - ![vuecli_step01](./images/vuex_15.png)<br/>
+    - Module:<br/>
         > Module是模块的意思，当我们的项目很大很复杂的时候，state中存储的状态也会变得非常多；<br/>
         > 使用方法：
-     ![vuecli_step01](./images/vuex_16.png)<br/>
+        - ![vuecli_step01](./images/vuex_16.png)<br/>
         > 配置完后，其他所说的操作数据的方法都要加上模块名称：
-     ![vuecli_step01](./images/vuex_17.png)<br/>
+        - ![vuecli_step01](./images/vuex_17.png)<br/>
 > 以上就是vuex的内容！！
         

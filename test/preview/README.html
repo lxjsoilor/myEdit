@@ -260,32 +260,33 @@ null, undefined与null相等, 字符串&#39;&#39;, 数字0, NaN</p>
 命令行输入：npm config get registry <br/>
 显示：<a href="https://registry.npmjs.org/">https://registry.npmjs.org/</a>    此时所有安装工具都是在国外的npm网站下载</li>
 <li>以下提供两种手段：二选一即可 完成下载镜像路径的切换<ul>
-<li>手段A:
-1.临时使用    npm install xxxxxxx --registry <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a><br/>
+<li>手段A:<blockquote>
+<p>1.临时使用    npm install xxxxxxx --registry <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a><br/>
 2.持久使用    npm config set registry <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a><br/>
-3.检验设置是否成功：npm config get registry    成功显示：<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org/</a><br/></li>
-</ul>
+3.检验设置是否成功：npm config get registry    成功显示：<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org/</a><br/></p>
+</blockquote>
+</li>
+<li>手段B：<blockquote>
+<p>打开cmd命令行输入 npm install nrm -g    //一分钟时间，安装完成<br/>
+查看有什么镜像可用，cmd命令行输入 nrm ls    结果如下<br/>
+<img src="./images/nrm_01.png" alt="nodejs_step08"><br/>
+nrm test    //测试速度 功能鸡肋可以略过<br/>
+nrm use taobao    //使用淘宝镜像 回车<br/>
+再次输入 nrm ls    //此时已经显示<br/>
+  <img src="./images/nrm_01.png" alt="nodejs_step08"><br/>
+检验设置是否成功：<br/>
+npm config get registry    成功显示：<a href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org/</a><br/></p>
+</blockquote>
 </li>
 </ul>
-</blockquote>
-<pre><code>- 手段B：
-    &gt; 打开cmd命令行输入 npm install nrm -g    //一分钟时间，安装完成&lt;br/&gt;
-    &gt; 查看有什么镜像可用，cmd命令行输入 nrm ls    结果如下&lt;br/&gt;
-    &gt; - ![nodejs_step08](./images/nrm_01.png)&lt;br/&gt;
-
-    &gt; nrm test    //测试速度 功能鸡肋可以略过&lt;br/&gt;
-    &gt; nrm use taobao    //使用淘宝镜像 回车&lt;br/&gt;
-    &gt; 再次输入 nrm ls    //此时已经显示&lt;br/&gt;
-    &gt; - ![nodejs_step08](./images/nrm_01.png)&lt;br/&gt;
-    &gt; 检验设置是否成功：&lt;br/&gt;
-    &gt; npm config get registry    成功显示：https://registry.npm.taobao.org/&lt;br/&gt;
-</code></pre><ul>
+</li>
 <li>最终温馨提示<ul>
 <li>切换镜像之前，在国外npm网站下载，命令行输入    ：npm install xxxxxxxxx</li>
 <li>A B手段二选一，设置好后，在国内taobao下载，命令行输入 ：npm install xxxxxxxxx</li>
 </ul>
 </li>
 </ul>
+</blockquote>
 <h3 id="vue-cli-vue-">vue-cli（vue脚手架）教程</h3>
 <ul>
 <li><p>1,安装vue-cli</p>
@@ -384,12 +385,9 @@ null, undefined与null相等, 字符串&#39;&#39;, 数字0, NaN</p>
 </ul>
 </blockquote>
 <pre><code>下图不仅概括了MVVM模式（Model-View-ViewModel），还描述了在Vue.js中ViewModel是如何和View以及Model进行交互的。
-
-![vuecli_step01](./images/vue_01.png)&lt;br/&gt;
-
-ViewModel是Vue.js的核心，它是一个Vue实例。Vue实例是作用于某一个HTML元素上的，这个元素可以是HTML的body元素，也可以是指定了id的某个元素。
-
-当创建了ViewModel后，双向绑定是如何达成的呢？
+</code></pre><p><img src="./images/vue_01.png" alt="vuecli_step01"><br/>
+    ViewModel是Vue.js的核心，它是一个Vue实例。Vue实例是作用于某一个HTML元素上的，这个元素可以是HTML的body元素，也可以是指定了id的某个元素。</p>
+<pre><code>当创建了ViewModel后，双向绑定是如何达成的呢？
 
 首先，我们将上图中的DOM Listeners和Data Bindings看作两个工具，它们是实现双向绑定的关键。
 从View侧看，ViewModel中的DOM Listeners工具会帮我们监测页面上DOM元素的变化，如果有变化，则更改Model中的数据；
@@ -955,44 +953,56 @@ Vue.js有多种数据绑定的语法，最基础的形式是文本插值，使�
   <img src="./images/vuex_03.png" alt="vuecli_step01"><br/></li>
 <li>之后我们在main.js中引入并且配置好我们要使用的vuex；<br/>
   <img src="./images/vuex_04.png" alt="vuecli_step01"><br/></li>
-<li>接下来就可以开始使用vuex了，vuex有5个核心概念分别是State，Getter，Mutation，Action，Module；</li>
+<li>接下来就可以开始使用vuex了，vuex有5个核心概念分别是State，Getter，Mutation，Action，Module；<ul>
 <li>A.State：<br/>
-Vuex这个属性将会存储着各个组件可能都会用到的数据；就好像localStorage，存储的是各个页面的共享数据；<br/>
-  <img src="./images/vuex_05.png" alt="vuecli_step01"><br/>
-在组件中我们可以通过this.$store.state.[数据名称]来显示这里面的数据，也可以写到computed计算属性里面：<br/>
-   <img src="./images/vuex_06.png" alt="vuecli_step01"><br/><pre><code>  还可以通过mapState的使用更加简单来取到state里面的数据：&lt;br/&gt;
-</code></pre>   <img src="./images/vuex_07.png" alt="vuecli_step01"><br/><pre><code>  然后只需要在计算属性里面加入：&lt;br/&gt;
-</code></pre>   <img src="./images/vuex_08.png" alt="vuecli_step01"><br/></li>
+Vuex这个属性将会存储着各个组件可能都会用到的数据；就好像localStorage，存储的是各个页面的共享数据；<br/><ul>
+<li><img src="./images/vuex_05.png" alt="vuecli_step01"><br/>
+在组件中我们可以通过this.$store.state.[数据名称]来显示这里面的数据，也可以写到computed计算属性里面：<br/></li>
+<li><img src="./images/vuex_06.png" alt="vuecli_step01"><br/>
+还可以通过mapState的使用更加简单来取到state里面的数据：<br/></li>
+<li><img src="./images/vuex_07.png" alt="vuecli_step01"><br/>
+然后只需要在计算属性里面加入：<br/></li>
+<li><img src="./images/vuex_08.png" alt="vuecli_step01"><br/></li>
+</ul>
+</li>
 <li>Mutations：<br/>
-Mutations意思是改变的意思，我们在操作state里面的数据的时候可以简单的使用$store.state =另外的数据；这种方法也可以达到更新页面的效果，但是vuex为我们提供更规范的写法来操作state
-   <img src="./images/vuex_09.png" alt="vuecli_step01"><br/>
+Mutations意思是改变的意思，我们在操作state里面的数据的时候可以简单的使用$store.state =另外的数据；这种方法也可以达到更新页面的效果，但是vuex为我们提供更规范的写法来操作state<ul>
+<li><img src="./images/vuex_09.png" alt="vuecli_step01"><br/>
 之后我们是在组件上通过this.$store.commit(‘mutations里面的方法名称’)来触发相应的函数来达到更新state的目的；<br/>
 因为每次写this.$store.commit很浪费时间，所以vuex也提供对应的方法：mapMutations;<br/></li>
+<li><img src="./images/vuex_10.png" alt="vuecli_step01"><br/></li>
 </ul>
-</blockquote>
-<pre><code> ![vuecli_step01](./images/vuex_10.png)&lt;br/&gt;
-&gt; - Getters:&lt;br/&gt;
-    &gt; Getters意思是获取的意思，在vuex中的作用是在获取数据之前对数据进行加工处理后输出。&lt;br/&gt;
-    &gt; 基本用法：&lt;br/&gt;
- ![vuecli_step01](./images/vuex_11.png)&lt;br/&gt;
- ![vuecli_step01](./images/vuex_12.png)&lt;br/&gt;
-    &gt; 之后可以在页面上通过this.$store.getters.方法名；如果需要传参就需要this.$store.getters.方法名(参数)；&lt;br/&gt;
-    &gt; Getters也是有对应的mapGetters方法来简化代码：&lt;br/&gt;
- ![vuecli_step01](./images/vuex_13.png)&lt;br/&gt;
-&gt; - Actions:&lt;br/&gt;
-    &gt; Actions和Mutations功能基本是一样的，但是actions是异步的改变state状态，而mutations是同步的改变状态。就是说当mutations里面的方法很复杂，执行时间久的话是会阻塞程序的运行，而actions是异步的所以就不会；&lt;br/&gt;
-    &gt; Actions操作的是mutation，而出发action则通过this.$store.dispatch(‘方法名’)来调用；&lt;br/&gt;
- ![vuecli_step01](./images/vuex_14.png)&lt;br/&gt;
-    &gt; 通过mapActions来简化代码：&lt;br/&gt;
- ![vuecli_step01](./images/vuex_15.png)&lt;br/&gt;
-&gt; - Module:&lt;br/&gt;
-    &gt; Module是模块的意思，当我们的项目很大很复杂的时候，state中存储的状态也会变得非常多；&lt;br/&gt;
-    &gt; 使用方法：
- ![vuecli_step01](./images/vuex_16.png)&lt;br/&gt;
-    &gt; 配置完后，其他所说的操作数据的方法都要加上模块名称：
- ![vuecli_step01](./images/vuex_17.png)&lt;br/&gt;
-</code></pre><blockquote>
-<p>以上就是vuex的内容！！</p>
+</li>
+<li>Getters:<br/>
+Getters意思是获取的意思，在vuex中的作用是在获取数据之前对数据进行加工处理后输出。<br/>
+基本用法：<br/><ul>
+<li><img src="./images/vuex_11.png" alt="vuecli_step01"><br/></li>
+<li><img src="./images/vuex_12.png" alt="vuecli_step01"><br/>
+之后可以在页面上通过this.$store.getters.方法名；如果需要传参就需要this.$store.getters.方法名(参数)；<br/>
+Getters也是有对应的mapGetters方法来简化代码：<br/></li>
+<li><img src="./images/vuex_13.png" alt="vuecli_step01"><br/></li>
+</ul>
+</li>
+<li>Actions:<br/>
+Actions和Mutations功能基本是一样的，但是actions是异步的改变state状态，而mutations是同步的改变状态。就是说当mutations里面的方法很复杂，执行时间久的话是会阻塞程序的运行，而actions是异步的所以就不会；<br/>
+Actions操作的是mutation，而出发action则通过this.$store.dispatch(‘方法名’)来调用；<br/><ul>
+<li><img src="./images/vuex_14.png" alt="vuecli_step01"><br/>
+通过mapActions来简化代码：<br/></li>
+<li><img src="./images/vuex_15.png" alt="vuecli_step01"><br/></li>
+</ul>
+</li>
+<li>Module:<br/>
+Module是模块的意思，当我们的项目很大很复杂的时候，state中存储的状态也会变得非常多；<br/>
+使用方法：<ul>
+<li><img src="./images/vuex_16.png" alt="vuecli_step01"><br/>
+配置完后，其他所说的操作数据的方法都要加上模块名称：</li>
+<li><img src="./images/vuex_17.png" alt="vuecli_step01"><br/>
+以上就是vuex的内容！！</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 </blockquote>
 
           	</article>
